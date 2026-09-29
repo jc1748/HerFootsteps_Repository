@@ -2,6 +2,27 @@
 
 ## Current Production Intent
 
+The first deliverable is a compact gameplay test on Windows with
+keyboard/mouse, not the full 15-30 minute vertical slice. Expanding scope
+requires designer approval after reviewing development and playtests.
+
+Confirmed controls and movement: stamina-limited running, no crouching,
+tap for standard interactions, and hold the interaction input for clue
+inspection. The early forest includes a configurable safe period that
+blocks all hunt triggers while the player learns the objective,
+controls, and basic systems. Timer start and composure/hallucination
+behavior during this period remain TBD.
+
+Temporary Inspector tuning values may be proposed for designer review
+and playtesting; they are not final design decisions. Development
+blockouts are temporary testing spaces. Final level layout and
+environment design remain designer-controlled.
+
+The designer has supplied audio and environment assets. Supplied audio
+may be used during approved implementation; report the exact clips used
+and preserve their attribution/license information. Asset availability
+does not authorize beginning gameplay implementation.
+
 The project is being developed iteratively. Planning documents estimate
 approximately **320 hours** across design, programming,
 level/environment work, art, audio, animation, UI, playtesting, and
@@ -16,7 +37,7 @@ complete everything at once.
 
 1.  Inspect Unity project configuration.
 2.  Establish project conventions/folder structure only where needed.
-3.  Core first-person player movement.
+3.  Core first-person player movement, including stamina-limited running.
 4.  Reusable interaction foundation.
 
 ### Phase 2 - Core Horror Inputs
@@ -37,7 +58,7 @@ complete everything at once.
 
 13. Cryptid navigation.
 14. Noise investigation.
-15. Hunt activation.
+15. Hunt activation with the configurable early-forest safe-period gate.
 16. Search behavior.
 17. Detection.
 18. Chase.

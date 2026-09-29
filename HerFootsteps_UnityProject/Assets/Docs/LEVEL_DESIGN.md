@@ -95,6 +95,10 @@ availability.
 
 Teach navigation, flashlight, clue searching, and noise awareness.
 
+A configurable safe period prevents hunts while the player learns the
+objective, controls, and basic systems. When the timer begins and how
+composure/hallucinations behave during it remain TBD.
+
 ### Mid
 
 Increase branching, noise hazards, resource pressure, and
@@ -108,6 +112,10 @@ pressure.
 ## Iteration Rules
 
 The map layout is expected to change frequently.
+
+Environment blockouts created during development are temporary testing
+spaces for the compact gameplay test. They do not establish the final
+level layout or environment design, which remain designer-controlled.
 
 Therefore: - Gameplay code should not rely on exact world coordinates
 unless clearly necessary. - Use reusable markers/components for clues,

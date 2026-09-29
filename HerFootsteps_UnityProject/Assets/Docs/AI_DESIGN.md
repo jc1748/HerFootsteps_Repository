@@ -27,6 +27,10 @@ The Hunt System activates the cryptid during a hunt. - Cryptid becomes
 an immediate gameplay threat. - Behavior should support searching,
 detection, chase, and disengagement.
 
+Hunt activation must respect the Hunt System's configurable early-forest
+safe period. No AI activation path may bypass that protection. Timer
+start and composure/hallucination behavior during the period remain TBD.
+
 ### Search
 
 -   Search nearby areas after a hunt/noise event.

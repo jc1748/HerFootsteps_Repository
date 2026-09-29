@@ -2,6 +2,8 @@
 
 ## 1. Player Movement
 
+Initial target: Windows with keyboard/mouse controls.
+
 ### Walking
 
 -   Slow, quiet player-controlled movement.
@@ -11,14 +13,15 @@
 ### Running
 
 -   Faster movement.
+-   Running is stamina-limited. Stamina capacity, drain, recovery, and
+    exhaustion behavior remain TBD.
 -   Produces more noise than walking.
 -   High-priority prototype mechanic.
 -   Should communicate with the Noise System.
 
 ### Crouching
 
-Included in the original pitch as a movement option. Prototype
-commitment and exact behavior remain TBD.
+Excluded from the current prototype.
 
 ## 2. Noise System
 
@@ -63,9 +66,12 @@ Unsettling sounds become more frequent.
 **Low** - Hallucinations become more aggressive. - Screams become more
 likely.
 
-**Broken** - The cryptid becomes aware of the player. - A hunt begins.
+**Broken** - Triggers a hunt subject to the Hunt System's safe-period
+gate. No hunt can trigger while the early-forest safe period is active.
 
 Exact thresholds and drain/recovery values are TBD.
+
+Composure behavior during the early-forest safe period remains TBD.
 
 ## 4. Flashlight System
 
@@ -106,6 +112,10 @@ Exact resource economy is TBD.
 
 ## 7. Interaction System
 
+Standard interactions use a tap. Clue inspection requires holding the
+same interaction input. Hold duration, release behavior, and inspection
+presentation remain TBD.
+
 Required foundation for: - Clue inspection. - Item pickup. - Hiding
 locations. - Environmental interactions. - Potential resource/safety
 locations.
@@ -125,6 +135,8 @@ Clues should support progression through the forest and may restore
 composure.
 
 ## 9. Hallucination System
+
+Hallucination behavior during the early-forest safe period remains TBD.
 
 Depends on Composure.
 
@@ -157,9 +169,21 @@ Exact failure rules are TBD.
 
 ## 12. Hunt System
 
+### Early-Forest Safe Period
+
+A configurable safe period prevents all hunts, including those normally
+triggered by noise, screams, or broken composure. Its purpose is to let
+the player learn the objective, controls, and basic systems before
+facing the cryptid.
+
+The timer's starting event and composure/hallucination behavior during
+this period remain TBD. Duration is configurable, with no final value
+selected. Treatment of accumulated triggers at expiry is also TBD;
+no automatic hunt or trigger-discarding rule has been approved.
+
 ### Triggers
 
-A hunt may begin when: - Player creates too much noise. - Player
+A hunt may begin outside the safe period when: - Player creates too much noise. - Player
 screams. - Composure reaches the broken state.
 
 ### Warning
@@ -218,3 +242,10 @@ Exact checkpoint structure is TBD.
 -   Cryptid AI + Noise + Composure -\> Hunt.
 -   Clues -\> Progression.
 -   Hunt -\> Death/Restart.
+-   Safe-period gate -\> Hunt eligibility for every trigger source.
+
+## Tuning Policy
+
+Temporary Inspector values may be proposed for designer review and
+playtesting. They are provisional and do not resolve final design TBDs
+or authorize new behavior.

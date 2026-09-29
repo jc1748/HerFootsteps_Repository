@@ -50,16 +50,18 @@ sound, and loss of control rather than traditional combat.
 
 ## Primary Mechanics
 
+Initial target: Windows with keyboard/mouse controls.
+
 ### Movement
 
 -   Walking
--   Running
--   Crouching is part of the game pitch but is not yet listed as a
-    committed prototype mechanic in the resource workbook.
+-   Stamina-limited running.
+-   Crouching is excluded from the current prototype.
 
 ### Searching
 
--   Inspect clues.
+-   Inspect clues by holding the interaction input.
+-   Use a tap for standard interactions.
 -   Gather supplies.
 -   Discover the sister's belongings.
 
@@ -105,10 +107,15 @@ sound, and loss of control rather than traditional combat.
 
 ## Progression
 
+The timings below describe the larger vertical-slice direction, not the
+duration of the first deliverable, which is a compact gameplay test.
+
 ### Early Forest - approximately 1-5 minutes
 
--   Few hallucinations.
--   No hunt.
+-   A configurable safe period prevents all hunts so the player can learn
+    the objective, controls, and basic systems before facing the cryptid.
+-   The safe-period timer's starting event and composure/hallucination
+    behavior during this period remain TBD.
 -   Mostly navigation.
 -   Supplies are available.
 
@@ -159,6 +166,10 @@ forest itself functioning as an antagonist.
 
 These should not be decided by the AI without approval: - Exact cryptid
 visual design. - Exact detection rules and ranges. - Exact composure
-values/rates. - Exact noise thresholds and values. - Whether crouching
-is required in the first prototype. - Final item list and resource
-balance. - Exact ending/resolution of the prototype.
+values/rates. - Exact noise thresholds and values. - Stamina rules and
+values. - Safe-period timer start and composure/hallucination behavior
+during it. - Final item list and resource balance. - Exact
+ending/resolution of the prototype.
+
+Temporary Inspector tuning values may be proposed for designer review
+and playtesting; they are not final design decisions.

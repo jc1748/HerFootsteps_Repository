@@ -5,6 +5,12 @@
 Create a playable first-person horror prototype that proves the core
 experience before production scope expands.
 
+The first deliverable is a **compact gameplay test**, not the full
+15-30 minute vertical slice. Scope may expand only with designer approval
+after evaluating development progress and playtesting.
+
+Initial target: **Windows with keyboard/mouse**.
+
 The larger vertical-slice target is approximately **15-30 minutes** and
 should introduce: - Clue tracking - Composure - Hallucinations - One
 complete hunt sequence - A cryptid reveal
@@ -21,12 +27,14 @@ the cryptid becomes a threat?
 
 -   First-person player controller.
 -   Walking.
--   Running.
+-   Stamina-limited running.
 -   Flashlight.
--   Basic interaction.
+-   Standard interactions use a tap; clue inspection requires holding
+    the interaction input.
 -   Hiding.
 -   Hold breath.
 -   Simple inventory.
+-   Crouching is excluded from the current prototype.
 
 ### Core Systems
 
@@ -38,6 +46,10 @@ the cryptid becomes a threat?
 -   Clue tracking.
 -   Progression.
 -   Death/restart.
+-   A configurable early-forest safe period blocks all hunt triggers so
+    the player can learn the objective, controls, and basic systems.
+    Timer start and composure/hallucination behavior during this period
+    remain TBD.
 
 ### Cryptid
 
@@ -112,6 +124,12 @@ the hunt or fail and restart cleanly.
 
 Models, materials, animations, sounds, lighting, vegetation, terrain,
 and map layout may all be replaced.
+
+Development environment blockouts are temporary testing spaces. Final
+level layout and environment design remain designer-controlled.
+
+Temporary Inspector tuning values may be proposed for designer review
+and playtesting. They do not establish final design decisions.
 
 Systems should therefore be designed so content can be swapped without
 requiring major gameplay rewrites.
