@@ -1,0 +1,5 @@
+{
+    "name": "HerFootsteps.Tests.PlayMode",
+    "references": ["HerFootsteps.Runtime", "Unity.InputSystem"],
+    "optionalUnityReferences": ["TestAssemblies"]
+}

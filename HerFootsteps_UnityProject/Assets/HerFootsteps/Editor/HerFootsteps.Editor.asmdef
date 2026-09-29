@@ -1,0 +1,5 @@
+{
+    "name": "HerFootsteps.Editor",
+    "references": ["HerFootsteps.Runtime", "Unity.InputSystem", "Unity.RenderPipelines.Universal.Runtime", "UnityEditor.TestRunner", "UnityEngine.TestRunner"],
+    "includePlatforms": ["Editor"]
+}

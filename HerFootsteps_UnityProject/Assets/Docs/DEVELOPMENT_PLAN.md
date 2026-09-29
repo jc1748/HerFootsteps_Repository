@@ -33,6 +33,18 @@ complete everything at once.
 
 ## Recommended Dependency-Driven Order
 
+### Milestone 1 - Player Movement and Interaction Test
+
+Approved scope: Windows keyboard/mouse first-person movement, WASD,
+mouse look, stamina-limited Left Shift sprint, tap E interactions, and
+a temporary movement/interaction blockout. No crouching or jumping.
+The interaction contract supports future hold-based targets without
+implementing the clue system. No later-milestone systems are included.
+
+See `MILESTONE_1_PLAYTEST.md` for implemented assets, provisional values,
+verification, and the playtest checklist. These values and the test
+layout are provisional. Further milestones require designer approval.
+
 ### Phase 1 - Foundation
 
 1.  Inspect Unity project configuration.

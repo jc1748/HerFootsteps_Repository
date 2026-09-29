@@ -1,0 +1,6 @@
+{
+    "name": "HerFootsteps.Tests.EditMode",
+    "references": ["HerFootsteps.Runtime", "Unity.InputSystem"],
+    "includePlatforms": ["Editor"],
+    "optionalUnityReferences": ["TestAssemblies"]
+}

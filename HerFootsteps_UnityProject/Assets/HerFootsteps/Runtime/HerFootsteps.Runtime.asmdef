@@ -1,0 +1,6 @@
+{
+    "name": "HerFootsteps.Runtime",
+    "rootNamespace": "HerFootsteps",
+    "references": ["Unity.InputSystem"],
+    "autoReferenced": true
+}
