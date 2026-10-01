@@ -36,6 +36,14 @@ regain composure.
 Noise should be consumable by cryptid investigation/hunt logic. Exact
 values and thresholds are TBD and should be tunable.
 
+Milestone 2 implements a test event channel with category, world position,
+intensity, range, timestamp, source, and instigator. Walking/sprinting
+emit based on actual grounded travel. A temporary debris obstacle emits
+on traversal or interaction with a cooldown. Range/intensity are data for
+future listeners, not finalized hearing, attenuation, occlusion, or hunt
+rules. A debug HUD and range gizmos expose these events without requiring
+audio clips. See `MILESTONE_2_PLAYTEST.md` for provisional values.
+
 ## 3. Composure System
 
 Purpose: track the player's psychological state and change
@@ -80,6 +88,12 @@ Reality-check/defense mechanic.
 
 The flashlight should support battery/resource use.
 
+Milestone 2 adds F to toggle a model-independent light, battery capacity
+and active-only drain, and temporary battery HUD feedback. Other systems
+can query whether it is active. Battery depletion switches it off; an
+empty light cannot turn on. No hallucination/reality-check behavior is
+implemented. Initial values remain provisional.
+
 ### Hallucination Reaction
 
 At low composure, harmless wildlife may be perceived as monstrous. - A
@@ -109,6 +123,13 @@ Purpose: - Create survival pressure. - Encourage exploration. - Prevent
 unlimited reliance on safety tools.
 
 Exact resource economy is TBD.
+
+Milestone 2 tests batteries as direct E-interaction refills, without an
+inventory. A pickup restores its configured amount up to capacity and
+is consumed only when some charge is restored. Excess charge is discarded;
+full charge leaves the pickup available. Refilling does not automatically
+switch an extinguished flashlight back on. These are provisional test
+behaviors, not a finalized inventory or resource economy.
 
 ## 7. Interaction System
 

@@ -21,9 +21,13 @@ namespace HerFootsteps.Tests
             var keyboard = InputSystem.AddDevice<Keyboard>("M1PlayKeyboard");
             var mouse = InputSystem.AddDevice<Mouse>("M1PlayMouse");
             var previousBackground = InputSystem.settings.backgroundBehavior;
+            var previousRouting = InputSystem.settings.editorInputBehaviorInPlayMode;
             try
             {
                 InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
+                // Synthetic input must also reach the game when tests run without a focused Game view.
+                InputSystem.settings.editorInputBehaviorInPlayMode =
+                    InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
                 actions.devices = new InputDevice[] { keyboard, mouse };
                 actions.bindingMask = InputBinding.MaskByGroup("Keyboard&Mouse");
                 var move = actions.FindAction("Player/Move", true);
@@ -55,6 +59,7 @@ namespace HerFootsteps.Tests
                 InputSystem.RemoveDevice(keyboard);
                 InputSystem.RemoveDevice(mouse);
                 InputSystem.settings.backgroundBehavior = previousBackground;
+                InputSystem.settings.editorInputBehaviorInPlayMode = previousRouting;
             }
         }
 
@@ -65,7 +70,7 @@ namespace HerFootsteps.Tests
                 new LoadSceneParameters(LoadSceneMode.Single));
             yield return null;
             yield return null;
-            var player = Object.FindFirstObjectByType<FirstPersonMotor>();
+            var player = Object.FindAnyObjectByType<FirstPersonMotor>();
             Assert.That(player, Is.Not.Null);
             Assert.That(player.GetComponent<PlayerInputReader>().enabled, Is.True);
             Assert.That(player.Stamina, Is.EqualTo(100));
@@ -74,7 +79,7 @@ namespace HerFootsteps.Tests
             while (!controller.isGrounded && Time.realtimeSinceStartup < settleDeadline)
                 yield return null;
             Assert.That(controller.isGrounded, Is.True, "Player should settle onto the blockout floor.");
-            var targets = Object.FindObjectsByType<TestToggleInteractable>(FindObjectsSortMode.None);
+            var targets = Object.FindObjectsByType<TestToggleInteractable>();
             Assert.That(targets.Length, Is.EqualTo(2));
             targets[0].Interact(player.GetComponent<PlayerInteractor>());
             Assert.That(targets[0].IsOn, Is.True);

@@ -183,6 +183,7 @@ namespace HerFootsteps.Editor
         }
 
         [MenuItem("Her Footsteps/Milestone 1/Run Edit Mode Tests")]
+        // Both milestones share these test assemblies; this also runs regression checks.
         public static void RunTests()
         {
             StartTests(TestMode.EditMode, "HerFootsteps.Tests.EditMode", "tests");

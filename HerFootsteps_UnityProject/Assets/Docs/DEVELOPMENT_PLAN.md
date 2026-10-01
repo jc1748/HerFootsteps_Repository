@@ -47,6 +47,23 @@ layout are provisional. Further milestones require designer approval.
 
 ### Phase 1 - Foundation
 
+Milestone 1 has been playtested by the designer: movement, stamina-limited
+sprinting, and interaction are working.
+
+### Milestone 2 - Flashlight, Resources, and Noise Test
+
+Approved scope: a toggleable battery-powered flashlight, direct battery
+pickups through the existing interaction system, reusable spatial noise
+events from walking/sprinting and a temporary environmental obstacle,
+and lightweight test feedback. Extend the current architecture and
+blockout; do not replace the working controller. No full inventory,
+composure, hallucinations, AI, hunts, hiding, clues, or progression.
+
+See `MILESTONE_2_PLAYTEST.md` for provisional tuning, assets, verification,
+and playtest guidance. Stop after this milestone pending designer review.
+
+### Foundation dependency checklist
+
 1.  Inspect Unity project configuration.
 2.  Establish project conventions/folder structure only where needed.
 3.  Core first-person player movement, including stamina-limited running.

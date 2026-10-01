@@ -19,7 +19,7 @@ namespace HerFootsteps
         private void OnGUI()
         {
             if (motor == null || interactor == null || input == null) return;
-            GUI.Box(new Rect(16, 16, 460, 114), "MILESTONE 1 - TEMPORARY TEST SPACE");
+            GUI.Box(new Rect(16, 16, 460, 114), "TEMPORARY PROTOTYPE TEST SPACE");
             GUI.Label(new Rect(28, 44, 440, 24), "WASD: move   |   Left Shift: sprint   |   E: interact");
             GUI.Label(new Rect(28, 68, 440, 24), "Esc: release cursor   |   Click: resume   |   No jump/crouch");
             GUI.Label(new Rect(28, 94, 440, 24),

@@ -5,6 +5,19 @@ namespace HerFootsteps
     [RequireComponent(typeof(CharacterController))]
     public sealed class FirstPersonMotor : MonoBehaviour
     {
+        public readonly struct MovementStep
+        {
+            public readonly Vector3 Position;
+            public readonly float HorizontalDistance, DeltaTime;
+            public readonly bool Grounded, Sprinting;
+            public MovementStep(Vector3 position, float distance, float deltaTime, bool grounded, bool sprinting)
+            {
+                Position = position; HorizontalDistance = distance; DeltaTime = deltaTime;
+                Grounded = grounded; Sprinting = sprinting;
+            }
+        }
+
+        public event System.Action<MovementStep> Moved;
         [SerializeField] private PlayerInputReader input;
         [SerializeField] private Transform view;
         [Header("Provisional movement tuning")]
@@ -69,8 +82,13 @@ namespace HerFootsteps
             Vector3 direction = transform.right * movement.x + transform.forward * movement.y;
             if (controller.isGrounded && verticalSpeed < 0) verticalSpeed = -2;
             verticalSpeed += gravity * deltaTime;
+            Vector3 before = transform.position;
             var flags = controller.Move((direction * speed + Vector3.up * verticalSpeed) * deltaTime);
             if ((flags & CollisionFlags.Below) != 0) verticalSpeed = -2;
+            Vector3 displacement = transform.position - before;
+            displacement.y = 0;
+            Moved?.Invoke(new MovementStep(transform.position, displacement.magnitude, deltaTime,
+                controller.isGrounded, IsSprinting));
         }
     }
 }

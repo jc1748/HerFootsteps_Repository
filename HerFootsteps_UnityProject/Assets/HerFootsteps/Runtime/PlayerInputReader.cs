@@ -9,7 +9,7 @@ namespace HerFootsteps
     {
         [SerializeField] private InputActionAsset actions;
         private InputActionAsset instance;
-        private InputAction move, look, sprint, interact, cancel, click;
+        private InputAction move, look, sprint, interact, cancel, click, flashlight;
         private bool captured;
         private int capturedFrame;
 
@@ -20,6 +20,7 @@ namespace HerFootsteps
         public bool Sprint => HasControl && sprint.IsPressed();
         public bool InteractPressed => HasControl && interact.WasPressedThisFrame();
         public bool InteractHeld => HasControl && interact.IsPressed();
+        public bool FlashlightPressed => HasControl && flashlight != null && flashlight.WasPressedThisFrame();
 
         public void Configure(InputActionAsset source) => actions = source;
 
@@ -40,6 +41,8 @@ namespace HerFootsteps
             interact = instance.FindAction("Player/Interact", true);
             cancel = instance.FindAction("UI/Cancel", true);
             click = instance.FindAction("UI/Click", true);
+            flashlight = instance.FindAction("Player/Flashlight", false);
+            flashlight?.Enable();
             foreach (var action in new[] { move, look, sprint, interact, cancel, click })
                 action.Enable();
             SetCapture(true);
