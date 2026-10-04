@@ -179,6 +179,12 @@ the player.
 
 The system should not depend on one specific hiding-spot model.
 
+Milestone 3 implements reusable HidingSpot markers and PlayerHiding.IsHidden.
+E enters through the existing interaction system and exits regardless of view
+direction. Hidden movement is locked while look, F flashlight control and battery
+drain continue. IsHidden grants no universal invisibility; detection remains TBD.
+See `MILESTONE_3_PLAYTEST.md` for scene setup and provisional behavior.
+
 ## 11. Hold Breath
 
 Used while hiding during a cryptid search. - Player holds breath. - A
@@ -187,6 +193,12 @@ remain still. - Releasing/failing breath control may create detectable
 sound.
 
 Exact failure rules are TBD.
+
+Milestone 3 provisionally uses held Left Ctrl while hidden. A separate breath
+resource drains, recovers after release, and forces a cooldown plus input release
+after depletion. Successful holds suppress breathing noise; normal hidden breaths
+and stronger forced breaths use the existing NoiseChannel and debug range gizmos.
+Values and failure behavior are provisional; see `MILESTONE_3_PLAYTEST.md`.
 
 ## 12. Hunt System
 

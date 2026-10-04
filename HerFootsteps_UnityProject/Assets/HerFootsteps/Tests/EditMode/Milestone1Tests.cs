@@ -212,7 +212,9 @@ namespace HerFootsteps.Tests
                 var serialized = new SerializedObject(prefab.GetComponent(type));
                 var property = serialized.GetIterator();
                 while (property.NextVisible(true))
-                    if (property.propertyType == SerializedPropertyType.ObjectReference)
+                    // Hiding is optional on the preserved Milestone 1/2 player prefabs.
+                    if (property.propertyType == SerializedPropertyType.ObjectReference &&
+                        !(type == typeof(PlayerInteractor) && property.name == "hiding"))
                         Assert.That(property.objectReferenceValue, Is.Not.Null, type.Name + "." + property.name);
             }
         }

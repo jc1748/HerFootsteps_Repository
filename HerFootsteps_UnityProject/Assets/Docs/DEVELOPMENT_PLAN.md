@@ -62,6 +62,15 @@ composure, hallucinations, AI, hunts, hiding, clues, or progression.
 See `MILESTONE_2_PLAYTEST.md` for provisional tuning, assets, verification,
 and playtest guidance. Stop after this milestone pending designer review.
 
+### Milestone 3 - Hiding and Hold Breath Test
+
+Approved scope: reusable hiding spots, E entry/exit, movement lock with retained
+look and flashlight control, limited held breath on Left Ctrl, forced recovery,
+and breathing noise through the existing NoiseChannel. A separate M3 scene and
+player variant preserve the saved M1/M2 scenes and prefabs. All new tuning is
+provisional. See `MILESTONE_3_PLAYTEST.md` for inventory and validation. Stop after
+Milestone 3; cryptid AI, hunts and other later systems remain unimplemented.
+
 ### Foundation dependency checklist
 
 1.  Inspect Unity project configuration.

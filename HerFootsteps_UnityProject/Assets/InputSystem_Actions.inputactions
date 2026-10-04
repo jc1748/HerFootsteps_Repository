@@ -87,6 +87,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "HoldBreath",
+                    "type": "Button",
+                    "id": "fc1f974b-1917-48fd-90e8-888dc462d89e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Flashlight",
                     "type": "Button",
                     "id": "c956bd1e-43e4-4f32-8bd6-19e460709c8b",
@@ -97,6 +106,17 @@
                 }
             ],
             "bindings": [
+                {
+                    "name": "",
+                    "id": "18a4a7a6-3f6d-4e35-a68b-e2d68fd87890",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "HoldBreath",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
                     "name": "",
                     "id": "c4c14e0b-0c33-4c66-92a4-e16a3c75d49d",

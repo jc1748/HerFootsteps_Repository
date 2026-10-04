@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4753793529411579469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 595287701203090435, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 595287701203090435, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 595287701203090435, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 939805020769055610, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: hiding
+      value: 
+      objectReference: {fileID: 1108485919832063644}
+    - target: {fileID: 4035184349981024067, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_Name
+      value: Milestone3Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072411410346046599, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4035184349981024067, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108485919832063644}
+    - targetCorrespondingSourceObject: {fileID: 4035184349981024067, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4328998460082633773}
+    - targetCorrespondingSourceObject: {fileID: 4035184349981024067, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5196281246038313346}
+  m_SourcePrefab: {fileID: 100100000, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+--- !u!114 &1726405301102139026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6200808517111904479, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+  m_PrefabInstance: {fileID: 4753793529411579469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504771705061060878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d96c982e5faac42a00d1bd2828416e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.PlayerInputReader
+--- !u!1 &8504771705061060878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4035184349981024067, guid: 8d0dfae5d7183af48806df7eb28bc4b2, type: 3}
+  m_PrefabInstance: {fileID: 4753793529411579469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1108485919832063644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504771705061060878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30faee783c458c4599ee923b8074082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.PlayerHiding
+--- !u!114 &4328998460082633773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504771705061060878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c6a0c7728861f4dabf53cb1aaef5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.PlayerBreath
+  input: {fileID: 1726405301102139026}
+  hiding: {fileID: 1108485919832063644}
+  channel: {fileID: 11400000, guid: 1d8510dc5ad836a4d8df63686d0f9bbe, type: 2}
+  breathCapacity: 100
+  depletionPerSecond: 20
+  recoveryPerSecond: 25
+  forcedRecoverySeconds: 3
+  breathingInterval: 2
+  breathingIntensity: 0.1
+  breathingRange: 2
+  forcedIntensity: 0.8
+  forcedRange: 12
+--- !u!114 &5196281246038313346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8504771705061060878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64eeec1bc46f12f45bc7ec5967c0d7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.Milestone3Hud
+  hiding: {fileID: 1108485919832063644}
+  breath: {fileID: 4328998460082633773}

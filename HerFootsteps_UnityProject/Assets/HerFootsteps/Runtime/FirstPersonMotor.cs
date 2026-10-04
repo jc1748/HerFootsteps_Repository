@@ -38,6 +38,24 @@ namespace HerFootsteps
         public float StaminaCapacity => staminaCapacity;
         public bool Exhausted => stamina != null && stamina.Exhausted;
         public bool IsSprinting { get; private set; }
+        public bool MovementLocked { get; private set; }
+
+        public void SetMovementLocked(bool locked)
+        {
+            MovementLocked = locked;
+            verticalSpeed = 0;
+            IsSprinting = false;
+        }
+
+        public void Teleport(Vector3 position)
+        {
+            Initialize();
+            bool wasEnabled = controller.enabled;
+            controller.enabled = false;
+            transform.position = position;
+            controller.enabled = wasEnabled;
+            verticalSpeed = 0;
+        }
 
         public void Configure(PlayerInputReader source, Transform cameraTransform)
         {
@@ -73,6 +91,12 @@ namespace HerFootsteps
         {
             Initialize();
             if (deltaTime <= 0 || !controller.enabled) return;
+            if (MovementLocked)
+            {
+                stamina.Step(false, false, deltaTime, staminaCapacity, staminaDrain, staminaRecovery);
+                IsSprinting = false;
+                return;
+            }
             movement = Vector2.ClampMagnitude(movement, 1);
             float fraction = stamina.Step(sprintRequested,
                 movement.sqrMagnitude > 0.001f && controller.isGrounded,

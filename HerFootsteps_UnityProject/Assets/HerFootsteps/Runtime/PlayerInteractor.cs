@@ -6,6 +6,7 @@ namespace HerFootsteps
     {
         [SerializeField] private PlayerInputReader input;
         [SerializeField] private Camera view;
+        [SerializeField] private PlayerHiding hiding;
         [SerializeField, Min(0.1f)] private float interactionRange = 2.5f;
         [Tooltip("Include blockers as well as interactables to prevent interaction through walls.")]
         [SerializeField] private LayerMask raycastLayers = Physics.DefaultRaycastLayers;
@@ -36,7 +37,8 @@ namespace HerFootsteps
         public void RefreshTarget()
         {
             Interactable next = null;
-            if (view != null && Physics.Raycast(view.transform.position, view.transform.forward,
+            if (hiding != null && hiding.IsHidden) next = hiding.ActiveSpot;
+            else if (view != null && Physics.Raycast(view.transform.position, view.transform.forward,
                 out var hit, interactionRange, raycastLayers, QueryTriggerInteraction.Ignore))
             {
                 next = hit.collider.GetComponentInParent<Interactable>();
