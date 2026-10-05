@@ -44,6 +44,12 @@ future listeners, not finalized hearing, attenuation, occlusion, or hunt
 rules. A debug HUD and range gizmos expose these events without requiring
 audio clips. See `MILESTONE_2_PLAYTEST.md` for provisional values.
 
+Milestone 4 adds a cryptid listener that compares event position/range, a
+configurable range multiplier/cap and intensity threshold. Accepted sounds
+provide investigation snapshots, not continuous player tracking. These hearing
+rules are provisional and do not implement noise-triggered hunts. See
+`MILESTONE_4_PLAYTEST.md` and `AI_DESIGN.md` for confirmed behavior.
+
 ## 3. Composure System
 
 Purpose: track the player's psychological state and change
@@ -184,6 +190,11 @@ E enters through the existing interaction system and exits regardless of view
 direction. Hidden movement is locked while look, F flashlight control and battery
 drain continue. IsHidden grants no universal invisibility; detection remains TBD.
 See `MILESTONE_3_PLAYTEST.md` for scene setup and provisional behavior.
+
+Milestone 4 tests geometric visual concealment: both head and body sight samples
+must be blocked by cover. An exposed hidden player can be detected. Held breath
+suppresses existing breathing events; audible forced breathing can redirect the
+cryptid without granting automatic visual detection. No scripted spot inspection.
 
 ## 11. Hold Breath
 

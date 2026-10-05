@@ -68,8 +68,18 @@ Approved scope: reusable hiding spots, E entry/exit, movement lock with retained
 look and flashlight control, limited held breath on Left Ctrl, forced recovery,
 and breathing noise through the existing NoiseChannel. A separate M3 scene and
 player variant preserve the saved M1/M2 scenes and prefabs. All new tuning is
-provisional. See `MILESTONE_3_PLAYTEST.md` for inventory and validation. Stop after
-Milestone 3; cryptid AI, hunts and other later systems remain unimplemented.
+provisional. See `MILESTONE_3_PLAYTEST.md` for inventory and validation. This
+milestone stopped before cryptid AI and hunts; M4 is separately authorized below.
+
+### Milestone 4 - Cryptid AI Behavior Test
+
+Approved scope: primitive cryptid, NavMesh navigation, noise investigation,
+bounded search, range/FOV/occlusion sight, chase and loss-of-contact memory,
+disengagement, existing hiding/breath integration and temporary debugging. The
+separate M4 scene copies M3 and reuses its player. All tuning is provisional.
+See `MILESTONE_4_PLAYTEST.md` for implementation, assets and verification.
+This is an always-active AI behavior test, not the Hunt System. Stop after M4;
+no Hunt Controller, composure, hallucinations, death or Milestone 5 work.
 
 ### Foundation dependency checklist
 

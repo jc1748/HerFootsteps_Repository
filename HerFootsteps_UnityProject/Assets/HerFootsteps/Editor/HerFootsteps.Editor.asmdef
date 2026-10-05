@@ -1,6 +1,6 @@
 {
     "name": "HerFootsteps.Editor",
     "rootNamespace": "HerFootsteps.Editor",
-    "references": ["HerFootsteps.Runtime", "Unity.InputSystem", "Unity.RenderPipelines.Universal.Runtime", "UnityEditor.TestRunner", "UnityEngine.TestRunner"],
+    "references": ["HerFootsteps.Runtime", "Unity.InputSystem", "Unity.RenderPipelines.Universal.Runtime", "UnityEditor.TestRunner", "UnityEngine.TestRunner", "Unity.AI.Navigation"],
     "includePlatforms": ["Editor"]
 }

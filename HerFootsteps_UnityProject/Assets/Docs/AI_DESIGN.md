@@ -1,5 +1,22 @@
 # Her Footsteps - AI Design
 
+## Milestone 4 implementation status
+
+The approved AI behavior test now uses CryptidSenses, CryptidNavigation and
+CryptidBrain with Idle, Investigate, Search, Chase and Disengage states. It reuses
+NoiseChannel events, the existing player/hiding/breath/light states, and the
+installed AI Navigation package. Sound supplies a snapshot; confirmed sight
+supplies current position. Losing sight stops live tracking immediately and
+returns to bounded investigation/search of the last-known location.
+
+Sight requires provisional range/FOV and an unobstructed head or body ray.
+Hiding is not invisibility: geometry must conceal both samples. No flashlight
+detection rules or special hiding-spot inspection have been added. The scene is
+an always-active AI test, not a Hunt Controller or safe-period implementation.
+All tuning is provisional; see `MILESTONE_4_PLAYTEST.md` for exact values,
+architecture, scene assets and manual validation. Later design sections remain
+direction for future work, not a claim that the complete hunt is implemented.
+
 ## Cryptid Role
 
 The cryptid is the primary physical threat. It should create fear
