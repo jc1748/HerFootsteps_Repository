@@ -164,6 +164,13 @@ forest itself functioning as an antagonist.
 
 ## Open Design Questions
 
+Milestone 5 now prototypes composure-controlled false trails and threatening
+wildlife, plus a small inventory with stored flashlight batteries. These are
+test mechanics with provisional thresholds/timings, not final forest content,
+resource balance or safe-period policy. Broken emits a future-integration event
+and does not initiate a hunt. See `MILESTONE_5_PLAYTEST.md` for the implementation
+and manual evaluation sequence.
+
 These should not be decided by the AI without approval: - Exact cryptid
 visual design. - Exact detection rules and ranges. - Exact composure
 values/rates. - Exact noise thresholds and values. - Stamina rules and

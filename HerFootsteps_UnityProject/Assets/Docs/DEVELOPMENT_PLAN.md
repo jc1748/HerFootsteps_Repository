@@ -78,8 +78,23 @@ bounded search, range/FOV/occlusion sight, chase and loss-of-contact memory,
 disengagement, existing hiding/breath integration and temporary debugging. The
 separate M4 scene copies M3 and reuses its player. All tuning is provisional.
 See `MILESTONE_4_PLAYTEST.md` for implementation, assets and verification.
-This is an always-active AI behavior test, not the Hunt System. Stop after M4;
-no Hunt Controller, composure, hallucinations, death or Milestone 5 work.
+This is an always-active AI behavior test, not the Hunt System. M4 stopped
+before the separately authorized M5 work below.
+
+### Milestone 5 - Composure, Inventory and Hallucination Test
+
+Approved scope: reusable composure resource/events and independently enabled
+sources, finite recovery, five-slot inventory with item definitions and stored
+batteries, a Tab inventory interface, and composure-controlled false-trail and
+wildlife hallucination examples. A separate M5 scene extends the saved M4 scene.
+Broken publishes an event only. Wildlife failure uses the existing NoiseChannel;
+the existing AI remains an always-active behavior test. No Hunt Controller or
+early-game safe-period timer has been implemented. The future controller must
+gate all hunt requests, including Broken, behind the configurable safe period.
+
+See `MILESTONE_5_PLAYTEST.md` for components, provisional values, verification,
+file inventory and manual checks. Stop after M5. Final balancing, safe-period
+semantics, full hallucination content, progression, death and M6 are excluded.
 
 ### Foundation dependency checklist
 

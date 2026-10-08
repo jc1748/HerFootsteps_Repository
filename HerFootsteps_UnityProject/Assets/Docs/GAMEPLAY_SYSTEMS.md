@@ -87,6 +87,18 @@ Exact thresholds and drain/recovery values are TBD.
 
 Composure behavior during the early-forest safe period remains TBD.
 
+Milestone 5 implements `PlayerComposure` (0-100) with High/Medium/Low/Broken
+thresholds, signed `Apply` events, state transitions and a `ComposureChannel`
+ScriptableObject for external listeners. Broken publishes once per entry; it
+does not start a hunt or change cryptid AI. `ComposureRateSource` supports optional
+box volumes, independently enabled rates, recovery ceilings and persistent
+per-session budgets. `CryptidComposureSource` observes proximity, visual detection
+and Chase through an optional adapter. Passive and all cryptid sources start off
+for isolated tests. Interactable sources, a first-discovery keepsake bridge and
+an optional inventory recovery consumable demonstrate independent integrations.
+Hiding does not restore composure. Exact provisional values and controls are in
+`MILESTONE_5_PLAYTEST.md`; these do not settle final safe-period design.
+
 ## 4. Flashlight System
 
 Purposes: - Navigation. - Illumination. - Resource pressure. -
@@ -98,7 +110,9 @@ Milestone 2 adds F to toggle a model-independent light, battery capacity
 and active-only drain, and temporary battery HUD feedback. Other systems
 can query whether it is active. Battery depletion switches it off; an
 empty light cannot turn on. No hallucination/reality-check behavior is
-implemented. Initial values remain provisional.
+implemented in that milestone. Initial values remain provisional. M5 adds the
+separate wildlife flashlight reaction described below without changing the
+flashlight resource/toggle implementation or cryptid sight rules.
 
 ### Hallucination Reaction
 
@@ -120,6 +134,23 @@ Potential items: - Batteries. - Flares. - Matches. - Medical supplies.
 
 Only items required for the current prototype milestone should be
 implemented.
+
+Milestone 5 provides `PlayerInventory`, Inspector capacity 5, atomic pickups,
+stack limits, selection/description inspection, use and removal. ScriptableObject
+`ItemDefinition` assets distinguish stack size, consumability, removal permission
+and optional reusable `ItemUseEffect`. Battery use restores up to 40 charge and
+consumes one only if charge changed; full charge keeps the item. M5 pickups store
+items using the existing E interaction. Earlier milestone scenes retain their
+historical direct-refill battery pickups. A persistent test keepsake, removable
+non-stackable stones and consumable recovery tokens exercise extension points.
+No crafting, equipment, weight, save persistence or clue progression is included.
+
+Tab opens a temporary inventory; mouse selects slots and clicks Use/Remove.
+Tab/Esc/Close returns control. Modal input blocks walking, look, F, E and breath
+input while open, without clearing hiding's movement lock. The world, AI, breath
+recovery, composure and flashlight drain continue. Opening inventory therefore
+releases held breath; it is not a safe pause. Removal discards without spawning
+a world pickup. Old controls remain unchanged when inventory is closed.
 
 ## 6. Resource System
 
@@ -174,6 +205,20 @@ uncertainty.
 Hallucinations should escalate with composure loss. Individual
 hallucination types should remain modular so they can be added/removed
 during iteration.
+
+M5 `HallucinationEvent` is the reusable lifecycle: composure state subscription,
+minimum state, activation range/condition, active duration, cooldown and end
+reason. Derived events own separate, collider-free visual roots; real geometry
+and baked navigation are untouched. Debug triggers respect the same gates.
+`FalseTrailHallucination` toggles misleading placeholder markers.
+`WildlifeHallucination` activates within its view/occlusion condition and permits
+flashlight dismissal using active charge, beam range/cone and line of sight.
+Failure emits one Scream event at the player's position via the shared
+NoiseChannel. Recovery above the configured severity immediately removes active
+hallucinations without a failure scream. Timed/failed/dismissed/recovered events
+all enter cooldown. No permanent world changes or full cinematic/VFX systems.
+The test defaults both examples to Low/Broken; Medium behavior remains future
+content. See `MILESTONE_5_PLAYTEST.md` for the provisional timings and ranges.
 
 ## 10. Hiding System
 

@@ -87,6 +87,33 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "c5f57b30-636a-49d0-b1b3-901a9a048ac4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DebugFalseTrail",
+                    "type": "Button",
+                    "id": "10165047-7ffd-4b91-ad2f-2fbe0bca7d75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DebugWildlife",
+                    "type": "Button",
+                    "id": "fae7d921-14c7-4926-b779-3a547dbdb78e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "HoldBreath",
                     "type": "Button",
                     "id": "fc1f974b-1917-48fd-90e8-888dc462d89e",
@@ -106,6 +133,39 @@
                 }
             ],
             "bindings": [
+                {
+                    "name": "",
+                    "id": "78f9a28c-c789-4fce-aeb3-3b2a3b813064",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c8c0bfe-496c-4af8-99f7-a4a5a06051a5",
+                    "path": "<Keyboard>/f7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DebugFalseTrail",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c7ce55f-66c2-42f6-bb18-de5eb3a18ec7",
+                    "path": "<Keyboard>/f8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DebugWildlife",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
                     "name": "",
                     "id": "18a4a7a6-3f6d-4e35-a68b-e2d68fd87890",

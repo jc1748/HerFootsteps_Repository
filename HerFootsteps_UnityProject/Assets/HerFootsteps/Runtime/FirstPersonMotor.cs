@@ -91,7 +91,7 @@ namespace HerFootsteps
         {
             Initialize();
             if (deltaTime <= 0 || !controller.enabled) return;
-            if (MovementLocked)
+            if (MovementLocked || (input != null && input.ModalOpen))
             {
                 stamina.Step(false, false, deltaTime, staminaCapacity, staminaDrain, staminaRecovery);
                 IsSprinting = false;

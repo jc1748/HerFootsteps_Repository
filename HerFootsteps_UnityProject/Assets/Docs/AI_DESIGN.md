@@ -19,6 +19,15 @@ direction for future work, not a claim that the complete hunt is implemented.
 
 ## Cryptid Role
 
+Milestone 5 integration leaves the core state machine and sight/hearing tuning
+unchanged. `CryptidComposureSource` reads the current state and visual detection
+without writing them. Failed hallucinated wildlife reactions publish normal
+spatial Scream events; the cryptid applies its existing hearing rules and stores
+only the sound location. This does not start a hunt or reveal a hiding spot.
+`PlayerComposure.BrokenEntered` and `ComposureChannel.BrokenEntered` are extension
+points for a future Hunt Controller, which must enforce the configurable
+early-forest safe-period gate. No hunt controller/timer is part of M5.
+
 The cryptid is the primary physical threat. It should create fear
 through investigation, searching, pursuit, and the player's inability to
 defeat it through conventional combat.

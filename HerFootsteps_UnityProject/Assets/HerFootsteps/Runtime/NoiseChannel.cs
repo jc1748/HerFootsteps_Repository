@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HerFootsteps
 {
-    public enum NoiseKind { Walking, Sprinting, Environment, Breathing, ForcedBreath }
+    public enum NoiseKind { Walking, Sprinting, Environment, Breathing, ForcedBreath, Scream }
 
     public readonly struct NoiseEvent
     {

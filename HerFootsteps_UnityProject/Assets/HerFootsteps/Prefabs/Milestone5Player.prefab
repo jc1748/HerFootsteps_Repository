@@ -1,0 +1,222 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7368891304276913347
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3076840988485066413, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_Intensity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602362311921949386, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      propertyPath: m_Name
+      value: Milestone5Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1388615806187205664}
+    - targetCorrespondingSourceObject: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5790465197517110486}
+    - targetCorrespondingSourceObject: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5182958497645828962}
+    - targetCorrespondingSourceObject: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 539209014316124616}
+    - targetCorrespondingSourceObject: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8488437068680619994}
+    - targetCorrespondingSourceObject: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 750803947437503162}
+    - targetCorrespondingSourceObject: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4955011013937318582}
+  m_SourcePrefab: {fileID: 100100000, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+--- !u!1 &1172215010212371917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8504771705061060878, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+  m_PrefabInstance: {fileID: 7368891304276913347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1388615806187205664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172215010212371917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc355e137a7f28143bc531dcf63dc8b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.PlayerComposure
+  capacity: 100
+  startingValue: 100
+  highThreshold: 70
+  mediumThreshold: 35
+  brokenThreshold: 0
+  channel: {fileID: 11400000, guid: d7a7bbdd33f5d864fae2520a09c2fcfe, type: 2}
+--- !u!114 &5790465197517110486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172215010212371917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1654cd5f8116943a5b2c0fee3a79f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.PlayerInventory
+  capacity: 5
+  slots: []
+--- !u!114 &5182958497645828962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172215010212371917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e9b4200394c674391185e7d57ea853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.ComposureRateSource
+  player: {fileID: 1388615806187205664}
+  area: {fileID: 0}
+  sourceName: Passive danger
+  sourceActive: 0
+  ratePerSecond: -0.5
+  recoveryCeiling: 75
+  totalBudget: -1
+--- !u!114 &539209014316124616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172215010212371917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e9cb67c869c0f4bbc9383d0b906e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.CryptidComposureSource
+  player: {fileID: 1388615806187205664}
+  cryptid: {fileID: 0}
+  proximityEnabled: 0
+  pursuitEnabled: 0
+  detectionEnabled: 0
+  proximityRange: 6
+  proximityLossPerSecond: 2
+  pursuitLossPerSecond: 4
+  detectionLoss: 8
+--- !u!114 &8488437068680619994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172215010212371917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861fa20312822d341a03888f10621026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.DiscoveryComposureRecovery
+  inventory: {fileID: 5790465197517110486}
+  composure: {fileID: 1388615806187205664}
+  meaningfulItem: {fileID: 11400000, guid: 33e4489432a3023418cda218ce5d2383, type: 2}
+  recovery: 20
+--- !u!114 &750803947437503162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172215010212371917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3887406f4d891c4283b3cd89d9a2028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.Milestone5Hud
+  composure: {fileID: 1388615806187205664}
+  inventory: {fileID: 5790465197517110486}
+  input: {fileID: 8193987123618560593}
+  passive: {fileID: 5182958497645828962}
+  cryptidSource: {fileID: 539209014316124616}
+  trail: {fileID: 0}
+  wildlife: {fileID: 0}
+--- !u!114 &4955011013937318582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172215010212371917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2bb237d5800b6448a7de6f4b09b1957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.InventoryView
+  input: {fileID: 8193987123618560593}
+  inventory: {fileID: 5790465197517110486}
+  debug: {fileID: 750803947437503162}
+--- !u!114 &8193987123618560593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1726405301102139026, guid: 41cd1f8b234482242987bd2bd6a05ee9, type: 3}
+  m_PrefabInstance: {fileID: 7368891304276913347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172215010212371917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d96c982e5faac42a00d1bd2828416e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: HerFootsteps.Runtime::HerFootsteps.PlayerInputReader

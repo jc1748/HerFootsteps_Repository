@@ -10,10 +10,12 @@ namespace HerFootsteps
         [SerializeField] private InputActionAsset actions;
         private InputActionAsset instance;
         private InputAction move, look, sprint, interact, cancel, click, flashlight, holdBreath;
+        private InputAction inventory, debugTrail, debugWildlife;
+        public bool ModalOpen { get; private set; }
         private bool captured;
         private int capturedFrame;
 
-        public bool HasControl => captured && Application.isFocused &&
+        public bool HasControl => !ModalOpen && captured && Application.isFocused &&
             Cursor.lockState == CursorLockMode.Locked && Time.frameCount > capturedFrame;
         public Vector2 Move => HasControl ? move.ReadValue<Vector2>() : Vector2.zero;
         public Vector2 Look => HasControl ? look.ReadValue<Vector2>() : Vector2.zero;
@@ -22,6 +24,16 @@ namespace HerFootsteps
         public bool InteractHeld => HasControl && interact.IsPressed();
         public bool FlashlightPressed => HasControl && flashlight != null && flashlight.WasPressedThisFrame();
         public bool HoldBreathHeld => HasControl && holdBreath != null && holdBreath.IsPressed();
+        public bool InventoryPressed => Application.isFocused && inventory != null && inventory.WasPressedThisFrame();
+        public bool CancelPressed => Application.isFocused && cancel != null && cancel.WasPressedThisFrame();
+        public bool DebugTrailPressed => HasControl && debugTrail != null && debugTrail.WasPressedThisFrame();
+        public bool DebugWildlifePressed => HasControl && debugWildlife != null && debugWildlife.WasPressedThisFrame();
+
+        public void SetModalOpen(bool open)
+        {
+            ModalOpen = open;
+            SetCapture(!open && isActiveAndEnabled && Application.isFocused);
+        }
 
         public void Configure(InputActionAsset source) => actions = source;
 
@@ -46,6 +58,10 @@ namespace HerFootsteps
             flashlight?.Enable();
             holdBreath = instance.FindAction("Player/HoldBreath", false);
             holdBreath?.Enable();
+            inventory = instance.FindAction("Player/Inventory", false);
+            debugTrail = instance.FindAction("Player/DebugFalseTrail", false);
+            debugWildlife = instance.FindAction("Player/DebugWildlife", false);
+            inventory?.Enable(); debugTrail?.Enable(); debugWildlife?.Enable();
             foreach (var action in new[] { move, look, sprint, interact, cancel, click })
                 action.Enable();
             SetCapture(true);
@@ -53,6 +69,7 @@ namespace HerFootsteps
 
         private void Update()
         {
+            if (ModalOpen) return; // Inventory owns cursor; UI clicks must not recapture world input.
             if (cancel.WasPressedThisFrame()) SetCapture(false);
             else if (!captured && Application.isFocused && click.WasPressedThisFrame())
                 SetCapture(true);
@@ -74,6 +91,7 @@ namespace HerFootsteps
 
         private void OnDisable()
         {
+            ModalOpen = false;
             SetCapture(false);
             if (instance == null) return;
             instance.Disable();

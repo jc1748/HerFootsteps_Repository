@@ -36,6 +36,7 @@ namespace HerFootsteps
 
         public void RefreshTarget()
         {
+            if (input != null && input.ModalOpen) { CancelInteraction(); Target = null; return; }
             Interactable next = null;
             if (hiding != null && hiding.IsHidden) next = hiding.ActiveSpot;
             else if (view != null && Physics.Raycast(view.transform.position, view.transform.forward,
@@ -50,6 +51,7 @@ namespace HerFootsteps
 
         public void ProcessInteraction(bool pressed, bool held, float deltaTime)
         {
+            if (input != null && input.ModalOpen) { CancelInteraction(); Target = null; return; }
             if (Target == null || !Target.CanInteract)
             {
                 CancelInteraction();

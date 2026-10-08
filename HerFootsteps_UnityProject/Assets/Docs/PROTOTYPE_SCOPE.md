@@ -122,6 +122,15 @@ the hunt or fail and restart cleanly.
 
 ## Not a Final-Art Milestone
 
+The separately approved Milestone 5 test combines composure, lightweight
+inventory and a modular hallucination framework with two playable examples:
+false trail markers and flashlight-reactive hallucinated wildlife. The saved
+M4 environment is retained in a separate M5 scene. Test recovery/loss objects
+and debug controls are temporary. Broken only publishes a reusable event;
+failed wildlife reactions feed existing noise investigation. Complete hunts,
+safe-period timing, final psychological presentation, clue progression, death,
+restart and Milestone 6 remain outside this implementation.
+
 Models, materials, animations, sounds, lighting, vegetation, terrain,
 and map layout may all be replaced.
 

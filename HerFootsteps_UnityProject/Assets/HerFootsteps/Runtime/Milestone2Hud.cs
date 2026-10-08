@@ -66,6 +66,7 @@ namespace HerFootsteps
         private static Color ColorFor(NoiseKind kind) => kind == NoiseKind.Walking
             ? Color.cyan : kind == NoiseKind.Sprinting ? Color.yellow
             : kind == NoiseKind.Breathing ? Color.green
-            : kind == NoiseKind.ForcedBreath ? Color.magenta : new Color(1, 0.55f, 0.3f);
+            : kind == NoiseKind.ForcedBreath ? Color.magenta
+            : kind == NoiseKind.Scream ? Color.red : new Color(1, 0.55f, 0.3f);
     }
 }
