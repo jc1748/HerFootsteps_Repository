@@ -11,6 +11,7 @@ namespace HerFootsteps
         [SerializeField] private CryptidComposureSource cryptidSource;
         [SerializeField] private FalseTrailHallucination trail;
         [SerializeField] private WildlifeHallucination wildlife;
+        [SerializeField] private string controlHint = "Tab: inventory / debug controls   F7: trail   F8: wildlife";
         private void Update()
         {
             if (input == null) return;
@@ -27,7 +28,7 @@ namespace HerFootsteps
                 "Last change: " + composure.LastSource,
                 "Transition: " + composure.LastTransition,
                 "Broken entries: " + composure.BrokenEntryCount + " (no hunt trigger)",
-                "Tab: inventory / debug controls   F7: trail   F8: wildlife",
+                controlHint,
                 trail != null ? $"Trail: {trail.Status}  active {trail.Remaining:0.0}s / cooldown {trail.CooldownRemaining:0.0}s" : "",
                 wildlife != null ? $"Wildlife: {wildlife.Status}  react {wildlife.ReactionRemaining:0.0}s / cooldown {wildlife.CooldownRemaining:0.0}s" : "",
                 inventory != null ? inventory.Status : ""

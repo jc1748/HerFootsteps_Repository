@@ -1,5 +1,11 @@
 # Milestone 5 - Composure, inventory and hallucinations
 
+Historical mechanics test. The designer confirmed these underlying mechanics in
+manual testing before the separate presentation refinement. For current gameplay
+controls, passive drain, clue discovery and forest presentation, see
+`MILESTONE_5_PRESENTATION.md`. This original test scene and its Tab modal are
+preserved for regression; the new presentation scene reserves Tab for a future map.
+
 ## Start
 
 Open `Assets/Scenes/Milestone5_Test.unity`, or use Her Footsteps > Milestone 5 >

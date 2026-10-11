@@ -82,6 +82,12 @@ Initial target: Windows with keyboard/mouse controls.
 -   Store a limited number of items.
 -   Use supplies.
 
+The M5 presentation refinement uses a persistent five-slot quick-access hotbar.
+Selecting/using supplies retains movement and camera control. Sister discoveries
+are separate hold-E interactions that immediately restore composure, consume no
+inventory capacity and publish discovery events. Tab is reserved for a future
+map in this new presentation scene; no map is implemented.
+
 ## Gameplay States
 
 ### Exploration

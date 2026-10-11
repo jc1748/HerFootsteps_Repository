@@ -122,6 +122,12 @@ the hunt or fail and restart cleanly.
 
 ## Not a Final-Art Milestone
 
+The designer separately authorized an atmospheric M5 presentation refinement:
+existing Conifers URP assets, compact editable forest, persistent hotbar, independent
+sister discoveries, passive composure pressure/calm areas and optional debug UI.
+This extends presentation within M5 and does not begin M6, a full map, Hunt
+Controller, death/restart, final creature art or final narrative progression.
+
 The separately approved Milestone 5 test combines composure, lightweight
 inventory and a modular hallucination framework with two playable examples:
 false trail markers and flashlight-reactive hallucinated wildlife. The saved

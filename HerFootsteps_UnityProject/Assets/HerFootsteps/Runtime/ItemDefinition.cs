@@ -11,6 +11,8 @@ namespace HerFootsteps
         [SerializeField] private bool consumable;
         [SerializeField] private bool removable = true;
         [SerializeField] private ItemUseEffect useEffect;
+        [SerializeField] private Sprite icon;
+        public Sprite Icon => icon;
         public string DisplayName => displayName;
         public string Description => description;
         public int MaximumStack => Mathf.Max(1, maximumStack);

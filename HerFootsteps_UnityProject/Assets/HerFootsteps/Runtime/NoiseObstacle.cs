@@ -10,8 +10,9 @@ namespace HerFootsteps
         [SerializeField, Min(0)] private float cooldown = 2;
         [SerializeField, Min(0)] private float minimumSpeed = 0.1f;
         private float readyAt = float.NegativeInfinity;
+        [SerializeField] private string prompt = "Crunch test debris";
         public override bool CanInteract => base.CanInteract && Time.time >= readyAt;
-        public override string Prompt => "Crunch test debris";
+        public override string Prompt => prompt;
 
         public void Configure(NoiseChannel noiseChannel) => channel = noiseChannel;
 

@@ -111,6 +111,17 @@ pressure.
 
 ## Iteration Rules
 
+The approved M5 presentation scene is an editable compact forest with a campsite,
+a main northbound trail, a western loop, branch litter hazards, battery supplies,
+a sister's scarf discovery, a root/rock hiding shelter and hallucination spaces.
+It uses existing Conifers [BOTD] URP prefabs. Cold exponential-squared fog,
+canopy shadows and a narrow flashlight provide depth and limited visibility.
+Tree/trunk geometry occludes the AI; small visual foliage is not an automatic
+concealment mechanic. The hiding shelter uses solid cover and a clear entry/exit.
+The layout is provisional, saved in the scene, and remains designer-owned.
+Editor construction used a fixed placement seed, not runtime procedural generation.
+See `MILESTONE_5_PRESENTATION.md` for placements and rebuilding navigation.
+
 The map layout is expected to change frequently.
 
 Environment blockouts created during development are temporary testing

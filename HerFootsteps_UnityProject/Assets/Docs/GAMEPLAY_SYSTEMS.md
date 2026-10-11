@@ -101,6 +101,15 @@ Hiding does not restore composure. Exact provisional values and controls are in
 
 ## 4. Flashlight System
 
+**M5 presentation refinement:** the new forest scene enables exactly one player
+passive ComposureRateSource at -0.5/s. Its explicit `suppressInside` box references
+suspend only that source while in the campsite calm area, including after the
+area's limited recovery is exhausted. Other fear sources remain independent.
+The campsite restores +3/s up to 75, with 20 total recovery per session. Cryptid
+proximity (-2/s within 6 m), detection (-8 per reacquisition) and pursuit (-4/s)
+are enabled in this scene. All values are provisional; hiding grants no recovery
+or global immunity. Broken still publishes events only.
+
 Purposes: - Navigation. - Illumination. - Resource pressure. -
 Reality-check/defense mechanic.
 
@@ -154,6 +163,15 @@ a world pickup. Old controls remain unchanged when inventory is closed.
 
 ## 6. Resource System
 
+**M5 presentation refinement:** a separate input asset removes the Inventory
+action and reserves Tab as Map (no consumer yet). Keys 1-5 select and R uses the
+selected item through the existing inventory API. A Canvas/HotbarSlotView UI
+replaces modal InventoryView in the presentation scene. Slot capacity, stacking,
+full-inventory rejection and non-wasteful battery use are unchanged. ItemDefinition
+now has an optional Sprite icon; items without one use a restrained text fallback.
+The previous M5 test scene retains its original input asset and modal UI for
+historical regression; it is not the current gameplay presentation.
+
 Controls limited supplies such as flashlight batteries.
 
 Purpose: - Create survival pressure. - Encourage exploration. - Prevent
@@ -193,6 +211,14 @@ Clues should support progression through the forest and may restore
 composure.
 
 ## 9. Hallucination System
+
+**M5 presentation refinement:** `ClueDiscovery` reuses Interactable.HoldDuration
+(1.5 s provisional) and PlayerInteractor's cancellation/occlusion rules. Successful
+hold-E discovery immediately grants +20 composure once and marks the clue discovered,
+even at full composure. It does not add an item. Per-clue ID, C# Discovered event
+and Inspector UnityEvent are future narrative/objective integration points; no
+progression or save persistence is implemented. Subtle text feedback replaces the
+inventory keepsake bridge in the new scene. Original M5 keepsake tests remain.
 
 Hallucination behavior during the early-forest safe period remains TBD.
 

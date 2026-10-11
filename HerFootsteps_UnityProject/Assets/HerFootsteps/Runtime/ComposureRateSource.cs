@@ -16,6 +16,8 @@ namespace HerFootsteps
         [Tooltip("Negative means unlimited. Positive recovery budgets do not refill on re-entry or re-enable.")]
         [SerializeField] private float totalBudget = -1;
         private float spent;
+        [Tooltip("Optional safe volumes that suspend this source only, even after recovery is exhausted.")]
+        [SerializeField] private BoxCollider[] suppressInside = new BoxCollider[0];
         public bool SourceActive { get => sourceActive; set => sourceActive = value; }
         public float RemainingBudget => totalBudget < 0 ? float.PositiveInfinity : Mathf.Max(0, totalBudget - spent);
         public bool IsApplying { get; private set; }
@@ -25,6 +27,9 @@ namespace HerFootsteps
             if (player == null) return;
             bool inside = area == null || (area.enabled && area.gameObject.activeInHierarchy &&
                 new Bounds(area.center, area.size).Contains(area.transform.InverseTransformPoint(player.transform.position + Vector3.up * playerSampleHeight)));
+            foreach (var safe in suppressInside)
+                if (safe != null && safe.enabled && safe.gameObject.activeInHierarchy &&
+                    new Bounds(safe.center, safe.size).Contains(safe.transform.InverseTransformPoint(player.transform.position + Vector3.up * playerSampleHeight))) inside = false;
             IsApplying = isActiveAndEnabled && sourceActive && inside && RemainingBudget > 0 && deltaTime > 0;
             float amount = IsApplying ? ratePerSecond * deltaTime : 0;
             if (amount > 0) amount = Mathf.Min(amount, Mathf.Max(0, Mathf.Min(player.Capacity, recoveryCeiling) - player.Current));

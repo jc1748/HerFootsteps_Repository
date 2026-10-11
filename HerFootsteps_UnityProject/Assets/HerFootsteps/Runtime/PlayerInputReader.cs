@@ -11,6 +11,14 @@ namespace HerFootsteps
         private InputActionAsset instance;
         private InputAction move, look, sprint, interact, cancel, click, flashlight, holdBreath;
         private InputAction inventory, debugTrail, debugWildlife;
+        private InputAction useItem, map;
+        private readonly InputAction[] slots = new InputAction[5];
+        public bool UseItemPressed => HasControl && useItem != null && useItem.WasPressedThisFrame();
+        public bool MapPressed => HasControl && map != null && map.WasPressedThisFrame();
+        public int SelectedSlotPressed
+        {
+            get { if (HasControl) for (int i = 0; i < slots.Length; i++) if (slots[i] != null && slots[i].WasPressedThisFrame()) return i; return -1; }
+        }
         public bool ModalOpen { get; private set; }
         private bool captured;
         private int capturedFrame;
@@ -62,6 +70,9 @@ namespace HerFootsteps
             debugTrail = instance.FindAction("Player/DebugFalseTrail", false);
             debugWildlife = instance.FindAction("Player/DebugWildlife", false);
             inventory?.Enable(); debugTrail?.Enable(); debugWildlife?.Enable();
+            useItem = instance.FindAction("Player/UseItem", false); useItem?.Enable();
+            map = instance.FindAction("Player/Map", false); map?.Enable();
+            for (int i = 0; i < slots.Length; i++) { slots[i] = instance.FindAction("Player/Slot" + (i + 1), false); slots[i]?.Enable(); }
             foreach (var action in new[] { move, look, sprint, interact, cancel, click })
                 action.Enable();
             SetCapture(true);

@@ -98,6 +98,15 @@ Keep this behavior simple for the prototype.
 
 ## Ambient Wildlife
 
+The M5 presentation scene attaches a dark, branch-crowned temporary silhouette
+to the existing cryptid and a rough quadruped silhouette to wildlife hallucination.
+These replace only visuals. Forest trunks and rock cover provide occlusion;
+fog does not secretly modify AI detection distances. False trails use weathered
+stakes instead of floating debug markers. Existing state/range/duration/cooldown,
+flashlight dismissal and NoiseChannel failure consequences remain unchanged.
+No suitable creature/animal mesh was present in the inspected imported pack;
+these silhouettes are replaceable placeholders, not final creature design.
+
 Low priority / optional. Primarily supports atmosphere unless required
 by the hallucination test.
 

@@ -96,6 +96,17 @@ See `MILESTONE_5_PLAYTEST.md` for components, provisional values, verification,
 file inventory and manual checks. Stop after M5. Final balancing, safe-period
 semantics, full hallucination content, progression, death and M6 are excluded.
 
+### Milestone 5 presentation refinement (separately approved)
+
+Designer manual testing confirmed the M5 mechanics. The approved refinement
+adds a separate `Milestone5_Presentation` forest scene using the supplied Conifers
+URP assets, a persistent Canvas hotbar, hold-E clue discovery outside inventory,
+passive composure pressure with calm-volume suspension, restrained lighting/fog,
+and F3 developer overlays. Original milestone scenes/prefabs are historical tests
+and remain preserved. No Hunt Controller, death or final progression is added.
+See `MILESTONE_5_PRESENTATION.md` for scene contents, controls, assets, provisional
+values, validation and the manual checklist. Stop after this refinement.
+
 ### Foundation dependency checklist
 
 1.  Inspect Unity project configuration.
