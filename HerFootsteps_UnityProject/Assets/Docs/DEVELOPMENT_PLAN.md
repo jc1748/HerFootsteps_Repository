@@ -2,6 +2,16 @@
 
 ## Current Production Intent
 
+The designer separately authorized Milestone 6 after testing the M5.1 forest:
+fix hotbar bindings and add wheel cycling; persistent composure dial; replace
+visible false trails with phantom footsteps in the new scene; first complete hunt
+sequence with safe/warning/active/resolution/cooldown, capture and scene restart.
+The safe timer begins at first player control. Composure/hallucinations continue,
+blocked triggers are discarded and expiry never automatically starts a hunt.
+Existing AI/player systems and previous scenes are preserved. Implementation and
+validation: `MILESTONE_6_PLAYTEST.md`. Stop after M6; no final progression or larger
+forest expansion. Earlier milestone stop instructions below are historical.
+
 The first deliverable is a compact gameplay test on Windows with
 keyboard/mouse, not the full 15-30 minute vertical slice. Expanding scope
 requires designer approval after reviewing development and playtests.

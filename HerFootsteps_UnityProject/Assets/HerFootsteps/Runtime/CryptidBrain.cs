@@ -99,6 +99,16 @@ namespace HerFootsteps
 
         private void Update() => Tick(Time.deltaTime);
 
+        // Hunt orchestration supplies evidence once. Only normal senses can initiate Chase.
+        public void InvestigateEvidence(Vector3 position, string reason)
+        {
+            Initialize();
+            if (!isActiveAndEnabled) return;
+            lastKnownPosition = position;
+            hasLastKnownPosition = true;
+            BeginInvestigation(position, reason);
+        }
+
         public void Tick(float deltaTime)
         {
             Initialize();

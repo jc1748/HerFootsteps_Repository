@@ -11,7 +11,11 @@ namespace HerFootsteps
         private InputActionAsset instance;
         private InputAction move, look, sprint, interact, cancel, click, flashlight, holdBreath;
         private InputAction inventory, debugTrail, debugWildlife;
-        private InputAction useItem, map;
+        private InputAction useItem, map, cycleSlot;
+        public int SlotCycle
+        {
+            get { float value = HasControl && cycleSlot != null ? cycleSlot.ReadValue<float>() : 0; return value > 0 ? -1 : value < 0 ? 1 : 0; }
+        }
         private readonly InputAction[] slots = new InputAction[5];
         public bool UseItemPressed => HasControl && useItem != null && useItem.WasPressedThisFrame();
         public bool MapPressed => HasControl && map != null && map.WasPressedThisFrame();
@@ -71,6 +75,7 @@ namespace HerFootsteps
             debugWildlife = instance.FindAction("Player/DebugWildlife", false);
             inventory?.Enable(); debugTrail?.Enable(); debugWildlife?.Enable();
             useItem = instance.FindAction("Player/UseItem", false); useItem?.Enable();
+            cycleSlot = instance.FindAction("Player/CycleSlot", false); cycleSlot?.Enable();
             map = instance.FindAction("Player/Map", false); map?.Enable();
             for (int i = 0; i < slots.Length; i++) { slots[i] = instance.FindAction("Player/Slot" + (i + 1), false); slots[i]?.Enable(); }
             foreach (var action in new[] { move, look, sprint, interact, cancel, click })

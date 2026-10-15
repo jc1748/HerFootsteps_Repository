@@ -1,5 +1,22 @@
 # Her Footsteps - AI Design
 
+## Milestone 6 integration
+
+HuntController orchestrates the existing brain; its state machine is not replaced.
+The brain is disabled outside Active to prevent standalone sight/noise from
+bypassing safe/warning/cooldown gates. A new InvestigateEvidence entry point accepts
+one source snapshot. Normal senses still own Chase and loss-of-contact memory.
+Significant player-attributed noise must pass existing spatial hearing and a
+provisional hunt threshold. Broken supplies an authored search origin or cryptid
+position, without hidden-player tracking. Search plus Disengage returning Idle
+resolves the hunt. Capture requires Active Chase, close distance and fresh sight;
+concealing geometry protects hiding players. Phantom footsteps never emit gameplay
+noise, while wildlife screams still do. See `MILESTONE_6_PLAYTEST.md` for values.
+
+The M6 safe timer starts at first player control. Composure/hallucinations continue;
+blocked triggers are discarded and expiration does not initiate an encounter.
+Earlier sections describe historical always-active AI test scenes.
+
 ## Milestone 4 implementation status
 
 The approved AI behavior test now uses CryptidSenses, CryptidNavigation and

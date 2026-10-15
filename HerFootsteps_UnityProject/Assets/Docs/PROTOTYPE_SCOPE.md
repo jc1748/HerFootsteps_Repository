@@ -2,6 +2,13 @@
 
 ## Prototype Goal
 
+Milestone 6 is now explicitly authorized: repair hotbar input; add compact
+composure feedback and phantom footsteps; implement hunt safe/warning/active/
+resolution/cooldown phases plus basic capture/restart in a separate forest scene.
+Preserve previous scenes and existing AI. This supersedes historical M5 exclusions
+below only for this milestone. Final narrative progression and forest expansion
+remain excluded. See `MILESTONE_6_PLAYTEST.md`.
+
 Create a playable first-person horror prototype that proves the core
 experience before production scope expands.
 
@@ -48,8 +55,8 @@ the cryptid becomes a threat?
 -   Death/restart.
 -   A configurable early-forest safe period blocks all hunt triggers so
     the player can learn the objective, controls, and basic systems.
-    Timer start and composure/hallucination behavior during this period
-    remain TBD.
+    In M6 the timer starts at first player control. Composure and hallucinations
+    continue; blocked triggers are discarded and expiration alone starts no hunt.
 
 ### Cryptid
 

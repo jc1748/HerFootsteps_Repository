@@ -1,5 +1,24 @@
 # Her Footsteps - Gameplay Systems
 
+## Current Milestone 6 integration
+
+See `MILESTONE_6_PLAYTEST.md` for confirmed architecture, all provisional values,
+controls and validation. M6's separate scene uses corrected1–5/R action paths and
+scene reference, mouse-wheel selection, a persistent vector composure dial and
+PhantomFootstepsHallucination (perceptual audio, no NoiseChannel emission). The
+old false-trail root is inactive there; wildlife is unchanged. PlayerInventory,
+PlayerComposure, movement, flashlight, interactions and hiding remain the shared
+systems. Historical milestone descriptions below remain applicable to old scenes.
+
+HuntController exclusively gates cryptid activation: SafePeriod, Exploration,
+Warning, Active, Cooldown, Failed. Significant audible player noise and fresh
+Broken entry request hunts. Safe/cooldown triggers are discarded. Warning passes
+one evidence snapshot to existing AI investigation; sight alone escalates Chase.
+Broken uses an optional authored search origin or the cryptid's current location,
+never the player's concealed position. Natural AI disengagement resolves the hunt.
+Capture needs close Chase plus fresh geometric visibility. HuntPresentation owns
+ambience, warning and simple restart UI; it restores time/audio on scene reload.
+
 ## 1. Player Movement
 
 Initial target: Windows with keyboard/mouse controls.
@@ -291,10 +310,9 @@ triggered by noise, screams, or broken composure. Its purpose is to let
 the player learn the objective, controls, and basic systems before
 facing the cryptid.
 
-The timer's starting event and composure/hallucination behavior during
-this period remain TBD. Duration is configurable, with no final value
-selected. Treatment of accumulated triggers at expiry is also TBD;
-no automatic hunt or trigger-discarding rule has been approved.
+The timer begins when the player first gains control (M6 default60s, provisional).
+Composure and hallucinations continue. Blocked triggers are discarded, not queued;
+expiry alone never starts a hunt. A fresh eligible event is required afterward.
 
 ### Triggers
 

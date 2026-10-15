@@ -10,6 +10,7 @@ namespace HerFootsteps
         [SerializeField] private ComposureRateSource passive;
         [SerializeField] private string toggleBinding = "<Keyboard>/f3";
         [SerializeField] private string lossBinding = "<Keyboard>/f4", recoveryBinding = "<Keyboard>/f5";
+        [SerializeField] private string eventHint = "F7 trail | F8 wildlife";
         private InputAction toggle, loss, recovery;
         public bool Visible { get; private set; }
         private void OnEnable()
@@ -32,7 +33,7 @@ namespace HerFootsteps
         }
         private void OnGUI()
         {
-            if (Visible) GUI.Label(new Rect(16, 500, 750, 30), "F3 close debug | F4 -25 | F5 +25 | F7 trail | F8 wildlife | tune source switches in Inspector");
+            if (Visible) GUI.Label(new Rect(16, 500, 850, 30), "F3 close debug | F4 -25 | F5 +25 | " + eventHint + " | tune source switches in Inspector");
         }
     }
 }

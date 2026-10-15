@@ -32,7 +32,19 @@ namespace HerFootsteps
         }
         private void Start() => Notify("Her footprints lead into the trees.\nF light   ·   E interact   ·   1–5 select   ·   R use", 9);
         public void Select(int index) { if (index >= 0 && index < inventory.Slots.Count) { selected = index; selectionUntil = Time.unscaledTime + 4; } }
-        public bool UseSelected() { bool used = inventory.TryUse(selected); Notify(used ? "Used " + lastSelectedName : "Cannot use this now. Item kept."); return used; }
+        public bool UseSelected()
+        {
+            var item = inventory.Slots[selected].Item;
+            if (item == null) return false;
+            bool used = inventory.TryUse(selected);
+            Notify(used ? "Used " + item.DisplayName : "Cannot use this now. Item kept.");
+            return used;
+        }
+        public void Cycle(int direction)
+        {
+            int count = inventory.Slots.Count;
+            if (direction != 0 && count > 0) Select((selected + direction % count + count) % count);
+        }
         private string lastSelectedName = "item";
         private void Collected(ItemDefinition item, int count) => Notify("Collected " + item.DisplayName + (count > 1 ? " ×" + count : ""));
         private void StateChanged(ComposureChange change)
@@ -45,6 +57,7 @@ namespace HerFootsteps
         {
             if (inventory == null || input == null) return;
             if (input.SelectedSlotPressed >= 0) Select(input.SelectedSlotPressed);
+            else if (input.SlotCycle != 0) Cycle(input.SlotCycle);
             selected = Mathf.Clamp(selected, 0, inventory.Slots.Count - 1);
             var item = inventory.Slots[selected].Item;
             lastSelectedName = item != null ? item.DisplayName : "Empty slot";

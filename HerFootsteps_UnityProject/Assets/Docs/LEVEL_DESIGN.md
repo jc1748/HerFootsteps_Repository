@@ -1,5 +1,12 @@
 # Her Footsteps - Level and Environment Design
 
+Milestone6_Gameplay derives from the existing presentation forest without a layout
+rebuild. It reuses its saved ground, trees, NavMesh, fog and hiding geometry.
+False-trail markers are inactive; directional phantom footsteps have no visible
+person or permanent footprints. Hunt orchestration uses source locations rather
+than map-specific routes. The campsite is a limited composure recovery space, not
+an additional immunity zone. See `MILESTONE_6_PLAYTEST.md` for the route checklist.
+
 ## Environment Role
 
 The forest is both the main playable environment and a psychological

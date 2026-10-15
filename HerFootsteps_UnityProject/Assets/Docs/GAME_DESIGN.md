@@ -2,6 +2,12 @@
 
 ## Working Title
 
+Current playable implementation: separately approved **Milestone 6**, documented
+in `MILESTONE_6_PLAYTEST.md`. M6 adds gated hunts, capture/restart, corrected hotbar
+input with mouse wheel, a compact composure dial and perceptual phantom footsteps.
+Visible false trails are disabled in M6; wildlife keeps its real scream consequence.
+Earlier milestone descriptions below record their original implementation limits.
+
 **Her Footsteps**\
 Alternate working title: **When the Forest Falls Silent**
 
@@ -120,8 +126,9 @@ duration of the first deliverable, which is a compact gameplay test.
 
 -   A configurable safe period prevents all hunts so the player can learn
     the objective, controls, and basic systems before facing the cryptid.
--   The safe-period timer's starting event and composure/hallucination
-    behavior during this period remain TBD.
+-   The M6 safe timer starts when the player first gains control. Composure and
+    hallucinations continue; blocked triggers are discarded, and expiry does not
+    initiate a hunt. Duration remains provisional and Inspector-configurable.
 -   Mostly navigation.
 -   Supplies are available.
 
