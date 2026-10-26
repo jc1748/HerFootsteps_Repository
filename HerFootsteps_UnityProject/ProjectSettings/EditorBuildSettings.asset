@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Milestone6_Gameplay.unity
     guid: 1ddad202a1e54ba4fa3493598ef5670d
+  - enabled: 1
+    path: Assets/Scenes/Milestone7_ForestBlockout.unity
+    guid: d74d63a27589bed4f99224761c33e6a9
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
