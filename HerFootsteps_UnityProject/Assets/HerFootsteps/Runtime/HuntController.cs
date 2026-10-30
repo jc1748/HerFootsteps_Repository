@@ -13,6 +13,9 @@ namespace HerFootsteps
         [SerializeField] private PlayerComposure composure;
         [SerializeField] private CryptidBrain cryptid;
         [SerializeField] private NoiseChannel noise;
+        [Tooltip("Disable when accumulated NoiseExposure owns noise-triggered requests. AI hearing remains unchanged.")]
+        [SerializeField] private bool individualNoiseTriggers = true;
+        [SerializeField] private HuntPlacement placement;
         [Header("Provisional encounter tuning")]
         [SerializeField, Min(0)] private float safePeriod = 60;
         [SerializeField, Min(0)] private float warningDuration = 4;
@@ -24,6 +27,8 @@ namespace HerFootsteps
         private CryptidSenses senses;
         private bool clockStarted;
         private Vector3 evidence;
+        private bool spatialEvidence;
+        public bool IndividualNoiseTriggers => individualNoiseTriggers;
         public HuntState State { get; private set; } = HuntState.SafePeriod;
         public float SafeRemaining { get; private set; }
         public float WarningRemaining { get; private set; }
@@ -66,6 +71,12 @@ namespace HerFootsteps
                 WarningRemaining = Mathf.Max(0, WarningRemaining - deltaTime);
                 if (WarningRemaining <= 0)
                 {
+                    if (placement != null && !placement.TryEnter(out var entry))
+                    {
+                        LastGateResult = "Hunt cancelled: " + placement.Status;
+                        BeginCooldown(); return;
+                    }
+                    if (placement != null && !spatialEvidence) evidence = cryptid.transform.position;
                     cryptid.enabled = true;
                     cryptid.InvestigateEvidence(evidence, "Hunt: " + TriggerSource);
                     ActiveSeconds = 0;
@@ -78,17 +89,18 @@ namespace HerFootsteps
                 // TryObserve checks both head/body occlusion and existing hiding state.
                 // Being hidden alone is not immunity; concealed players cannot be captured.
                 if (CanCapture()) { cryptid.enabled = false; Transition(HuntState.Failed); }
-                else if (cryptid.State == CryptidState.Idle)
+                else if (cryptid.State == CryptidState.Idle || (placement != null && cryptid.State == CryptidState.Disengage))
                 {
                     cryptid.enabled = false;
-                    CooldownRemaining = Mathf.Max(0, cooldownDuration);
-                    Transition(HuntState.Cooldown);
+                    if (placement != null) placement.BeginReturn();
+                    BeginCooldown();
                 }
             }
             else if (State == HuntState.Cooldown)
             {
                 CooldownRemaining = Mathf.Max(0, CooldownRemaining - deltaTime);
-                if (CooldownRemaining <= 0) Transition(HuntState.Exploration);
+                if (placement != null) placement.TickReturn(deltaTime);
+                if (CooldownRemaining <= 0 && (placement == null || !placement.Returning)) Transition(HuntState.Exploration);
             }
         }
         public bool CanCapture() => State == HuntState.Active && cryptid != null && composure != null &&
@@ -98,25 +110,33 @@ namespace HerFootsteps
 
         private void OnNoise(NoiseEvent sound)
         {
+            if (!individualNoiseTriggers) return;
             // Only gameplay events attributable to this player can initiate an encounter.
             if (composure == null || sound.Intensity < noiseThreshold || senses == null || !senses.CanHear(sound, out _)) return;
             bool fromPlayer = sound.Instigator == composure.gameObject ||
                 (sound.Source != null && sound.Source.transform.IsChildOf(composure.transform));
-            if (fromPlayer) RequestHunt(sound.Position, "Noise: " + sound.Kind);
+            if (fromPlayer) TryRequestHunt(sound.Position, "Noise: " + sound.Kind);
         }
         private void OnBroken(ComposureChange change)
         {
             Vector3 origin = brokenSearchOrigin != null ? brokenSearchOrigin.position : cryptid != null ? cryptid.transform.position : transform.position;
-            RequestHunt(origin, "Broken composure");
+            TryRequestHunt(origin, "Broken composure", false);
         }
-        private bool RequestHunt(Vector3 position, string source)
+        public bool TryRequestHunt(Vector3 position, string source, bool isSpatialEvidence = true)
         {
             if (State != HuntState.Exploration) { LastGateResult = "Discarded " + source + " during " + State; return false; }
             if (cryptid == null || !cryptid.GetComponent<CryptidNavigation>().Ready)
             { LastGateResult = "Rejected: cryptid navigation unavailable"; return false; }
-            evidence = position; TriggerSource = source; LastGateResult = "Accepted";
+            if (placement != null && placement.Returning) { LastGateResult = "Discarded while returning home"; return false; }
+            if (!float.IsFinite(position.x) || !float.IsFinite(position.y) || !float.IsFinite(position.z)) return false;
+            evidence = position; spatialEvidence = isSpatialEvidence; TriggerSource = source; LastGateResult = "Accepted";
             WarningRemaining = Mathf.Max(0, warningDuration);
             Transition(HuntState.Warning); return true;
+        }
+        private void BeginCooldown()
+        {
+            CooldownRemaining = Mathf.Max(0, cooldownDuration);
+            Transition(HuntState.Cooldown);
         }
         private void Transition(HuntState next) { State = next; StateChanged?.Invoke(next); }
     }
