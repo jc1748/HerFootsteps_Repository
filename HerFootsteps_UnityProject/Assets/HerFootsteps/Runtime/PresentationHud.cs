@@ -16,6 +16,7 @@ namespace HerFootsteps
         [SerializeField] private Text prompt, selectedName, resources, notice;
         [SerializeField] private Image holdProgress, composurePulse;
         [SerializeField] private CanvasGroup noticeGroup;
+        [SerializeField] private bool showLegacyFlashlightText = true;
         private int selected;
         private float noticeUntil, selectionUntil, pulse;
         private string lastStatus;
@@ -71,7 +72,7 @@ namespace HerFootsteps
             holdProgress.enabled = interactor.HoldProgress > 0;
             holdProgress.rectTransform.sizeDelta = new Vector2(180 * interactor.HoldProgress, 2);
             resources.text = "";
-            if (flashlight.IsActive || flashlight.Battery < 20) resources.text += "LIGHT  " + Mathf.RoundToInt(flashlight.Battery) + "%   ";
+            if (showLegacyFlashlightText && (flashlight.IsActive || flashlight.Battery < 20)) resources.text += "LIGHT  " + Mathf.RoundToInt(flashlight.Battery) + "%   ";
             if (motor.Stamina < motor.StaminaCapacity - 1) resources.text += "STAMINA  " + Mathf.RoundToInt(motor.Stamina) + "%   ";
             if (breath.IsHoldingBreath || breath.IsForcedRecovery) resources.text += "BREATH  " + Mathf.RoundToInt(breath.Breath) + "%";
             if (inventory.Status != lastStatus)

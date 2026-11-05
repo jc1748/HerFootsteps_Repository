@@ -9,6 +9,10 @@ namespace HerFootsteps
         [SerializeField, Min(0)] private float range = 18;
         [SerializeField, Min(0)] private float cooldown = 2;
         [SerializeField, Min(0)] private float minimumSpeed = 0.1f;
+        [Header("World-space feedback")]
+        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioClip activationClip;
+        [SerializeField, Range(0, 1)] private float volume = 0.65f;
         private float readyAt = float.NegativeInfinity;
         [SerializeField] private string prompt = "Crunch test debris";
         public override bool CanInteract => base.CanInteract && Time.time >= readyAt;
@@ -41,6 +45,12 @@ namespace HerFootsteps
         {
             if (!CanInteract || channel == null) return;
             readyAt = Time.time + cooldown;
+            if (audioSource != null && activationClip != null)
+            {
+                audioSource.spatialBlend = 1;
+                audioSource.transform.position = transform.position;
+                audioSource.PlayOneShot(activationClip, volume);
+            }
             channel.Emit(NoiseKind.Environment, transform.position, intensity, range, gameObject, instigator);
         }
     }

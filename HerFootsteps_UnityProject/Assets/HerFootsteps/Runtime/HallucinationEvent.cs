@@ -15,6 +15,7 @@ namespace HerFootsteps
         [SerializeField, Min(0)] private float cooldown = 20;
         [SerializeField, Min(0)] private float activationRange = 12;
         [SerializeField] private bool automatic = true;
+        [SerializeField] private HallucinationDirector director;
         private float remaining, cooldownRemaining;
         public bool IsHallucination => true;
         public bool IsActive { get; private set; }
@@ -22,6 +23,22 @@ namespace HerFootsteps
         public float Remaining => remaining;
         public float CooldownRemaining => cooldownRemaining;
         public string Status { get; private set; } = "Waiting for low composure";
+        public ComposureState MinimumState => minimumState;
+        public string BlockReason
+        {
+            get
+            {
+                if (!isActiveAndEnabled) return "Disabled / inactive hierarchy";
+                if (IsActive) return "Active";
+                if (composure == null) return "Missing composure reference";
+                if (!StateAllows) return "Requires " + minimumState + " or worse";
+                if (cooldownRemaining > 0) return $"Event cooldown {cooldownRemaining:F1}s";
+                if (director != null && director.BlockReason(this) != null) return director.BlockReason(this);
+                if (Vector3.Distance(Player.position, transform.position) > activationRange) return "Outside activation range";
+                if (!ActivationCondition()) return "View / occlusion / audio condition";
+                return null;
+            }
+        }
         public event Action<HallucinationEvent, HallucinationEnd> Ended;
         protected Transform Player => composure != null ? composure.transform : null;
 
@@ -44,11 +61,8 @@ namespace HerFootsteps
         }
         public bool TryActivate()
         {
-            if (!isActiveAndEnabled || IsActive) return false;
-            if (!StateAllows) { Status = "Requires " + minimumState + " or worse"; return false; }
-            if (cooldownRemaining > 0) { Status = "Cooldown"; return false; }
-            if (Player == null || Vector3.Distance(Player.position, transform.position) > activationRange || !ActivationCondition())
-            { Status = "Outside activation range / view condition"; return false; }
+            string reason = BlockReason;
+            if (reason != null) { Status = reason; return false; }
             IsActive = true; remaining = Mathf.Max(0.1f, duration); Status = "Active";
             if (visualRoot != null) visualRoot.SetActive(true);
             OnStarted(); return true;

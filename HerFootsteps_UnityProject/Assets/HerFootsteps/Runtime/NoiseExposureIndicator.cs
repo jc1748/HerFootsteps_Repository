@@ -19,7 +19,7 @@ namespace HerFootsteps
             vh.Clear();var r=GetPixelAdjustedRect();
             for(int i=0;i<20;i++)
             {
-                float x=r.xMin+i*r.width/20;float h=4+(i%4)*3;
+                float x=r.xMin+i*r.width/20;float h=r.height*(.3f+(i%4)*.18f);
                 Color c=i/20f<shown?Color.Lerp(quiet,alert,shown):new Color(.12f,.16f,.16f,.65f);
                 if(i/20f<shown)c=Color.Lerp(c,new Color(.8f,.7f,.5f,1),pulse*.4f);
                 int n=vh.currentVertCount;float y=r.center.y-h*.5f;
